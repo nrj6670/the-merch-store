@@ -8,7 +8,7 @@
     "install-client": "cd ./client-side && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node app.js",
-    "dev": "concurrently \"nodemon app.js\" \"cd ../frontend && npm start\""
+    "dev": "concurrently \"nodemon app.js\" \"cd ./client-side && npm start\""
   },
   "author": "Neeraj Shakure",
   "license": "ISC",

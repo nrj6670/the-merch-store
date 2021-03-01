@@ -171,12 +171,17 @@ const ManageCategories = () => {
   return (
     <CategoryContainer>
       <h3>Total {categoriesFound} found : </h3>
+      {openUpdatePopup && updateHandlerPopup()}
+      {openCreatePopup && (
+        <>
+          {console.log("create popup")}
+          {createHandlerPopup()}
+        </>
+      )}
       {!isLoading && categories.length !== 0 ? (
         categories.map((category) => {
           return (
             <>
-              {openUpdatePopup && updateHandlerPopup()}
-              {openCreatePopup && createHandlerPopup()}
               <Category key={category._id}>
                 <ul>
                   <li>{category.name}</li>
@@ -198,7 +203,12 @@ const ManageCategories = () => {
       ) : (
         <h2>No category to show</h2>
       )}
-      <CreateCategory onClick={() => setOpenCreatePopup(true)}>
+      <CreateCategory
+        onClick={() => {
+          setOpenCreatePopup(true);
+          console.log(openCreatePopup);
+        }}
+      >
         Create new category
       </CreateCategory>
     </CategoryContainer>
