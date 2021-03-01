@@ -42,7 +42,7 @@ const StyledFooter = styled.div`
     .footer-text {
       flex: 1 1 20rem;
       p {
-        padding: 1rem;
+        padding: 1rem 0rem;
       }
     }
     .footer-social {

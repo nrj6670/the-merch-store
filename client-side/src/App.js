@@ -20,6 +20,7 @@ import UserDashboard from "./user/UserDashboard";
 import ViewOrders from "./user/ViewOrders";
 import OrderDetails from "./user/OrderDetails";
 import Footer from "./core/Footer";
+import NotFound from "./core/404NotFound";
 
 //protected routes
 import PrivateRoute from "./admin/helper/PrivateRoute";
@@ -84,6 +85,7 @@ function App() {
             exact
             component={OrderDetails}
           />
+          <Route path="/*" component={NotFound} />
         </Switch>
         <Footer />
       </BrowserRouter>
