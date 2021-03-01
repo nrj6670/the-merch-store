@@ -19,6 +19,7 @@ import CustomCheckout from "./core/CustomCheckout";
 import UserDashboard from "./user/UserDashboard";
 import ViewOrders from "./user/ViewOrders";
 import OrderDetails from "./user/OrderDetails";
+import Footer from "./core/Footer";
 
 //protected routes
 import PrivateRoute from "./admin/helper/PrivateRoute";
@@ -84,6 +85,7 @@ function App() {
             component={OrderDetails}
           />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );

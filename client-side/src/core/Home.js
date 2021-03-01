@@ -54,7 +54,7 @@ const StyledHome = styled.div`
 
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
 
