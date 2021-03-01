@@ -40,6 +40,9 @@ const StyledFooter = styled.div`
 
     .footer-text {
       flex: 1 1 20rem;
+      p {
+        padding: 1rem;
+      }
     }
     .footer-social {
       flex: 1 1 20rem;
