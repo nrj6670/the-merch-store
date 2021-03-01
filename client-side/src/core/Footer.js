@@ -23,16 +23,11 @@ const Footer = () => {
 };
 
 const StyledFooter = styled.div`
-  min-height: 8vh;
+  min-height: 10vh;
   background-color: #7fcec5;
   background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%);
   color: white;
   padding: 1rem 0rem;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  right: 0;
 
   .footer-container {
     display: flex;
