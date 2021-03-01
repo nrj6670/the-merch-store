@@ -43,9 +43,7 @@ if (process.env.NODE_ENV === "production") {
       next();
     },
     (req, res) => {
-      req.sendFile(
-        path.resolve(__dirname, "client-side", "build", "index.html")
-      );
+      req.sendFile(path.resolve(__dirname, "client-side/build/index.html"));
     }
   );
 }
