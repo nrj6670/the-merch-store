@@ -28,6 +28,7 @@ const StyledFooter = styled.div`
   background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%);
   color: white;
   padding: 1rem 0rem;
+  margin-top: 1rem;
 
   .footer-container {
     display: flex;
