@@ -36,9 +36,18 @@ app.use("/api", stripeRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client-side/build"));
-  app.get("*", (req, res) => {
-    req.sendFile(path.resolve(__dirname, "client-side", "build", "index.html"));
-  });
+  app.get(
+    "/*",
+    (next) => {
+      console.log("inside here");
+      next();
+    },
+    (req, res) => {
+      req.sendFile(
+        path.resolve(__dirname, "client-side", "build", "index.html")
+      );
+    }
+  );
 }
 //starting the app
 app.listen(port, () => {
