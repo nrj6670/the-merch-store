@@ -23,7 +23,7 @@ const Navbar = ({ history }) => {
             {isAuthenticated() &&
               (user.role === 1 ? (
                 <li>
-                  <Link to="/admin/dashboard">Dashboard</Link>
+                  <Link to="#/admin/dashboard">Dashboard</Link>
                 </li>
               ) : (
                 <li>
