@@ -38,17 +38,10 @@ app.use("/api", stripeRoutes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client-side/build"));
   console.log("production mode");
-  app.get(
-    "/*",
-    (next) => {
-      console.log("inside here");
-      next();
-    },
-    (req, res) => {
-      res.sendFile(path.join(__dirname, "./client-side/build/index.html"));
-    }
-  );
 }
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client-side/build", "index.html"));
+});
 //starting the app
 app.listen(port, () => {
   console.log(`server is up and running on port ${port}`);
