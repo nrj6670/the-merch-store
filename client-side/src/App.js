@@ -43,7 +43,7 @@ function App() {
             />
           </Route>
           <AdminRoute
-            path="/admin/dashboard"
+            path="#/admin/dashboard"
             exact
             component={AdminDashboard}
           />
