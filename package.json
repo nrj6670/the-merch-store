@@ -1,0 +1,39 @@
+{
+  "name": "projbackend",
+  "version": "1.0.0",
+  "description": "this is backend of e-commerce wesite",
+  "main": "app.js",
+  "scripts": {
+    "build": "cd ./client-side && npm run build",
+    "install-client": "cd ./client-side && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node app.js",
+    "dev": "concurrently \"nodemon app.js\" \"cd ../frontend && npm start\""
+  },
+  "author": "Neeraj Shakure",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "create-react-app": "^4.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-validator": "^6.9.2",
+    "formidable": "^1.2.2",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.13",
+    "sharp": "^0.27.0",
+    "start": "^5.1.0",
+    "stripe": "^8.134.0",
+    "uuid": "^8.3.2",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
