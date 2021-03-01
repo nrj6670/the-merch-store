@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParse = require("cookie-parser");
 const cors = require("cors");
@@ -35,7 +36,10 @@ app.use("/api", orderRoutes);
 app.use("/api", stripeRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("./client-side/build"));
+  app.use(express.static("client-side/build"));
+  app.get("*", (req, res) => {
+    req.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 //starting the app
 app.listen(port, () => {
