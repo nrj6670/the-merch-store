@@ -43,7 +43,7 @@ const Signin = () => {
 
     const response = await signin(values);
 
-    if (response.status === 401) {
+    if (response.status === 401 || response.status === 400) {
       return setStage({
         ...stage,
         error: true,

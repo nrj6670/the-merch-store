@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParse = require("cookie-parser");
 const cors = require("cors");
+require("dotenv").config({ path: "./config/dev.env" });
 
 //database connection
 require("./db/mongoose");
@@ -36,6 +37,7 @@ app.use("/api", stripeRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client-side/build"));
+  console.log("production mode");
   app.get(
     "/*",
     (next) => {
@@ -43,7 +45,7 @@ if (process.env.NODE_ENV === "production") {
       next();
     },
     (req, res) => {
-      req.sendFile(path.resolve(__dirname, "client-side/build/index.html"));
+      res.sendFile(path.join(__dirname, "./client-side/build/index.html"));
     }
   );
 }

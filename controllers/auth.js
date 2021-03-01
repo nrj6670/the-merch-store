@@ -33,13 +33,13 @@ exports.signin = (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email }, (err, user) => {
     if (err) {
-      return res.status(400).json({
+      return res.status(401).json({
         error: "Error occured",
       });
     }
 
     if (!user) {
-      return res.status(400).json({
+      return res.status(401).json({
         error: "user not found",
       });
     }
@@ -57,7 +57,7 @@ exports.signin = (req, res) => {
     res.cookie("token", token, { expire: new Date() + 9999 });
 
     //send response to front-end
-    return res.json({ token, user });
+    return res.status(200).json({ token, user });
   });
 };
 

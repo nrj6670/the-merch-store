@@ -32,6 +32,9 @@ export const signin = (userData) => {
     body: JSON.stringify(userData),
   })
     .then((response) => {
+      if (response.status === 401 || response.status === 400) {
+        return { error: "account not found", status: 401 };
+      }
       return response.json();
     })
     .catch((error) => {
