@@ -44,7 +44,7 @@ const StyledDashBoard = styled.div`
   width: 90%;
   margin: auto;
   margin-top: 2rem;
-  min-height: 60vh;
+  min-height: 80vh;
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;

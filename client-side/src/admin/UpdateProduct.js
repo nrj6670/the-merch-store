@@ -111,7 +111,7 @@ const UpdateProduct = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    window.scrollTo(500, 0);
     updateProduct(location.pathname.split("/")[3], user._id, token, formData)
       .then((response) => {
         setStatus({
@@ -360,6 +360,10 @@ const Message = styled.div`
   width: 50%;
   margin: auto;
   margin-bottom: 0.5rem;
+
+  @media screen and (max-width: 800px) {
+    width: 70%;
+  }
 `;
 
 const SizeContainer = styled.div`

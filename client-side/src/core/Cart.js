@@ -12,9 +12,6 @@ import { loadCart, changeQuantity, removeItem } from "./helper/cartHelper";
 import { isAuthenticated } from "../auth/helper/index";
 
 const Cart = ({ proceedToPay, setProceedToPay = (f) => f }) => {
-  //user data
-  const { user, token } = isAuthenticated();
-
   //state
   const [cartItems, setCartItems] = useState([]);
   const [reload, setReload] = useState(false);
@@ -110,7 +107,6 @@ const Cart = ({ proceedToPay, setProceedToPay = (f) => f }) => {
           </div>
           {isAuthenticated() ? (
             <PayButton onClick={() => setProceedToPay(true)}>
-              {console.log(proceedToPay)}
               <Link to="/checkout-page">Pay now</Link>
             </PayButton>
           ) : (
@@ -132,7 +128,7 @@ const Cart = ({ proceedToPay, setProceedToPay = (f) => f }) => {
 const StyledCart = styled.div`
   width: 90%;
   margin: auto;
-  min-height: 90vh;
+  min-height: 80vh;
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;

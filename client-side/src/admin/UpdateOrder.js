@@ -30,8 +30,9 @@ const UpdateOrder = () => {
   const [showMessage, setShowMessage] = useState({
     error: false,
     success: false,
+    isProcessing: false,
   });
-  const { error, success } = showMessage;
+  const { error, success, isProcessing } = showMessage;
 
   const [showMessageInPopup, setShowMessageInPopup] = useState(false);
   const [countDown, setCountDown] = useState(3);
@@ -64,11 +65,21 @@ const UpdateOrder = () => {
         setStatusPopup(false);
         setCurrentStatus(status);
         order.status = status;
-        setShowMessage({ ...showMessage, error: false, success: true });
+        setShowMessage({
+          ...showMessage,
+          error: false,
+          success: true,
+          isProcessing: false,
+        });
       })
       .catch((error) => {
         setStatusPopup(false);
-        setShowMessage({ ...showMessage, error: true, success: false });
+        setShowMessage({
+          ...showMessage,
+          error: true,
+          success: false,
+          isProcessing: false,
+        });
       });
   };
 
@@ -249,6 +260,11 @@ const UpdateOrder = () => {
               ) {
                 return setorderCompleted(true);
               }
+              setShowMessage({
+                isProcessing: true,
+                error: false,
+                success: false,
+              });
               performStatusChange("Cancelled");
             }}
           >

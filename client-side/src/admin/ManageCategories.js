@@ -81,6 +81,7 @@ const ManageCategories = () => {
   };
 
   const deleteButtonHandler = (category) => {
+    setResult({ ...result, isProcessing: true, error: false, success: false });
     deleteCategory(category._id, user._id, token)
       .then((response) => {
         setReload(!reload);
@@ -191,7 +192,11 @@ const ManageCategories = () => {
                     </span>
                   </li>
                   <li>
-                    <span onClick={() => deleteButtonHandler(category)}>
+                    <span
+                      onClick={() =>
+                        !isProcessing ? deleteButtonHandler(category) : ""
+                      }
+                    >
                       Delete
                     </span>
                   </li>

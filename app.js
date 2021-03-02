@@ -37,7 +37,6 @@ app.use("/api", stripeRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client-side/build"));
-  console.log("production mode");
 }
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client-side/build", "index.html"));

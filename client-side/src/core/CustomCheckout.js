@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { withRouter, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import {
   CardNumberElement,
   CardExpiryElement,
@@ -101,7 +101,6 @@ const CustomCheckout = ({
     city,
     state,
     formData,
-    address,
   } = shippingInfo;
 
   const [fieldEmpty, setFieldEmpty] = useState(false);
@@ -417,6 +416,7 @@ const CustomCheckout = ({
 };
 
 const BillInfo = styled.div`
+  min-height: 80vh;
   .billing-form {
     display: flex;
     flex-direction: column;

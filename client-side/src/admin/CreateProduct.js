@@ -45,6 +45,7 @@ const CreateProduct = ({ match }) => {
     error: false,
     success: false,
     isFieldEmpty: false,
+    isProcessing: false,
   });
 
   const [redirectCount, setRedirectCount] = useState(3);
@@ -61,7 +62,7 @@ const CreateProduct = ({ match }) => {
     formData,
     sizes,
   } = productInfo;
-  const { error, success, isFieldEmpty } = status;
+  const { error, success, isFieldEmpty, isProcessing } = status;
 
   //event handlers
   const handleChange = (name) => (event) => {
@@ -86,6 +87,14 @@ const CreateProduct = ({ match }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    window.scrollTo(500, 0);
+    setStatus({
+      ...status,
+      isProcessing: true,
+      error: false,
+      success: false,
+      isFieldEmpty: false,
+    });
     if (
       !name ||
       category === "" ||
@@ -99,6 +108,7 @@ const CreateProduct = ({ match }) => {
         error: true,
         success: false,
         isFieldEmpty: true,
+        isProcessing: false,
       });
     }
 
@@ -118,6 +128,7 @@ const CreateProduct = ({ match }) => {
           error: false,
           success: true,
           isFieldEmpty: false,
+          isProcessing: false,
         });
       })
       .catch((error) => {
@@ -126,6 +137,7 @@ const CreateProduct = ({ match }) => {
           error: true,
           success: false,
           isFieldEmpty: false,
+          isProcessing: false,
         });
       });
   };
@@ -161,6 +173,12 @@ const CreateProduct = ({ match }) => {
           <h2>Error updating product</h2>
           {isFieldEmpty && <h3>Please fill all the fields</h3>}
           {!isFieldEmpty && <h3>Error occured while updating the product</h3>}
+          {window.scrollTo(500, 0)}
+        </Message>
+      )}
+      {isProcessing && (
+        <Message>
+          <h2>Processing your request please wait</h2>
           {window.scrollTo(500, 0)}
         </Message>
       )}
@@ -254,7 +272,7 @@ const CreateProduct = ({ match }) => {
           />
         </div>
         <div>
-          <button>Submit</button>
+          <button disabled={isProcessing}>Submit</button>
         </div>
       </FormField>
     </ProductContainer>
@@ -339,6 +357,10 @@ const Message = styled.div`
   width: 50%;
   margin: auto;
   margin-bottom: 0.5rem;
+
+  @media screen and (max-width: 800px) {
+    width: 70%;
+  }
 `;
 
 const SizeContainer = styled.div`
