@@ -168,7 +168,7 @@ const Card = ({
 };
 
 const StyledCard = styled.div`
-  min-height: 40vh;
+  min-height: 20vh;
   padding: 0.5rem;
   background: white;
   border-radius: 5px;
