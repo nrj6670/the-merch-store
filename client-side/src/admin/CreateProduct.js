@@ -101,7 +101,8 @@ const CreateProduct = ({ match }) => {
       category === "select" ||
       !price ||
       !description ||
-      !stock
+      !stock ||
+      sizes.length === 0
     ) {
       return setStatus({
         ...status,
@@ -155,6 +156,17 @@ const CreateProduct = ({ match }) => {
     }, 1000);
   };
 
+  const resetError = () => {
+    setTimeout(() => {
+      setStatus({
+        error: false,
+        success: false,
+        isFieldEmpty: false,
+        isProcessing: false,
+      });
+    }, 3000);
+  };
+
   //sizes array
   const sizesName = ["XS", "S", "M", "L", "XL", "XXL"];
 
@@ -171,8 +183,14 @@ const CreateProduct = ({ match }) => {
       {error && (
         <Message>
           <h2>Error updating product</h2>
-          {isFieldEmpty && <h3>Please fill all the fields</h3>}
+          {isFieldEmpty && sizes.length !== 0 && (
+            <h3>Please fill all the fields</h3>
+          )}
+          {isFieldEmpty && sizes.length === 0 && (
+            <h3>Please select size atleast one size</h3>
+          )}
           {!isFieldEmpty && <h3>Error occured while updating the product</h3>}
+          {resetError()}
           {window.scrollTo(500, 0)}
         </Message>
       )}

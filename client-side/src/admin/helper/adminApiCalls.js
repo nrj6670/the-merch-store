@@ -173,6 +173,7 @@ export const updateProduct = (productId, userId, token, data) => {
 
 //delete product
 export const deleteProduct = (productId, userId, token) => {
+  console.log(productId);
   return fetch(`${API}/product/${productId}/${userId}`, {
     method: "DELETE",
     headers: {
