@@ -201,7 +201,6 @@ const StyledCard = styled.div`
   }
 
   @media screen and (max-width: 406px) {
-    min-height: 30vh;
     padding: 0.2rem;
     button {
       margin-bottom: 1rem;
