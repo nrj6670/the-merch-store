@@ -44,7 +44,7 @@ const Home = () => {
 const StyledHome = styled.div`
   width: 90%;
   margin: auto;
-  min-height: 90vh;
+  min-height: 80vh;
   padding: 2rem;
 
   @media screen and (max-width: 406px) {
