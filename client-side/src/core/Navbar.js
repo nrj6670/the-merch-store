@@ -13,7 +13,7 @@ const Navbar = ({ history }) => {
     <Nav>
       <NavContainer>
         <Icon>
-          <h2>Product Store</h2>
+          <h2>The Merch Store</h2>
         </Icon>
         <NavLinks>
           <ul>
@@ -82,6 +82,7 @@ const Icon = styled.div`
   flex: 1 1 20rem;
   h2 {
     text-align: start;
+    font-family: "Lobster", sans-serif;
   }
 
   @media screen and (max-width: 1066px) {

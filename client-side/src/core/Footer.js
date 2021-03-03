@@ -9,7 +9,13 @@ const Footer = () => {
     <StyledFooter>
       <div className="footer-container">
         <div className="footer-text">
-          <p>Created by Neeraj Shakure &copy; 2021</p>
+          <p>
+            Created by{" "}
+            <span style={{ fontFamily: "Lobster, sanserif" }}>
+              Neeraj Shakure
+            </span>{" "}
+            &copy; 2021
+          </p>
           <p>Email: nrj6670@gmail.com</p>
         </div>
         <div className="footer-social">
