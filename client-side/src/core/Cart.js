@@ -58,7 +58,7 @@ const Cart = ({ proceedToPay, setProceedToPay = (f) => f }) => {
                 <div>
                   <h2>{product.name}</h2>
                   <p>&#8377; {product.price}</p>
-                  <div>
+                  <div className="quantity-handler">
                     <button
                       onClick={() => changeQuantityHandler("decrease", product)}
                       className="decrementer"
@@ -132,6 +132,12 @@ const StyledCart = styled.div`
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
+
+  .quantity-handler {
+    @media screen and (max-width: 461px) {
+      width: 100%;
+    }
+  }
 `;
 
 const CardContainer = styled.div`
