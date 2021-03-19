@@ -4,3 +4,5 @@ import React from "react";
 import Home from "./core/Home";
 
 const Routes = () => {};
+
+export default Routes;
